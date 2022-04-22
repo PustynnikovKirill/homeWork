@@ -1,0 +1,23 @@
+.input fokus {
+    outline: none;
+    border: solid 2px;
+
+}
+.superInput {
+    margin: 10px;
+    background: #003300;
+    color: #99ff99;
+}
+
+.errorInput {
+    margin: 10px;
+    border: 2px solid #003355;
+    background: #003300;
+    color:#99ff99
+}
+
+.error {
+    color: #dd3355;
+    height: 21px;
+    margin-left: 10px;
+}

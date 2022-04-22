@@ -1,0 +1,23 @@
+.someClass {
+
+}
+.greeting {
+    display: flex;
+    align-items: flex-start;
+}
+
+.error {
+    color: red;
+    height: 21px;
+    margin-left: 10px;
+    border: 1px solid red;
+}
+.input:focus{
+    outline: none;
+    border: solid 2px;
+
+}
+.errorInput {
+    margin:10px;
+    background: ;
+}
