@@ -13,11 +13,11 @@ function Message(props: propsMessageType) {
         <div className={style.message}>
             <img src={props.avatar} alt={'avatar'} className={style.avatar}/>
             <div className={style.angle}/>
-                <div className={style.angle}>
-                    {props.name}
-                    {props.message}
-                    {props.time}
-                </div>
+            <div className={style.content}>
+                <div className={style.name}> {props.name}</div>
+                <div className={style.text}> {props.message}</div>
+                <div className={style.time}>{props.time}</div>
+            </div>
         </div>
     )
 }
