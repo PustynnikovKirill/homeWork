@@ -1,23 +1,25 @@
 import React, {useState} from 'react'
-import { v1 } from 'uuid'
 import GreetingContainer from './GreetingContainer'
+import {v1} from "uuid";
 
 // types
 export type UserType = {
-    id: string// need to fix any         //объект пользователя
+    _id:string //  need to fix any
     name: string // need to fix any
 }
 
-// уровень работы с глобальными данными              ГЛОБАЛЬНЫЙ УРОВЕНЬ
+// уровень работы с глобальными данными
 function HW3() {
-    const [users, setUsers] = useState <UserType[]>([]) // need to fix any  //массив этих имен
+    const [users, setUsers] = useState<UserType[]>([]) // need to fix any
 
-    const addUserCallback = (name: string) => {// need to fix any   и когда в name придет имя, мы создадим массив и засунем его туда ..добавить v1
-            const user = {
-                _id: v1(),
-                name:name,
-            }
-        setUsers([...users, user]) // need to fix
+    const addUserCallback = (name: string) => { // need to fix any
+        let newId = v1()
+        setUsers([...users,{_id:newId, name}])
+        // need to fix
+// need to fix
+
+
+
     }
 
     return (
@@ -26,7 +28,9 @@ function HW3() {
             homeworks 3
 
             {/*should work (должно работать)*/}
-            <GreetingContainer users={users} addUserCallback={addUserCallback}/>
+            <GreetingContainer users={users}
+                               addUserCallback={addUserCallback}
+            />
 
             <hr/>
             {/*для личного творчества, могу проверить*/}

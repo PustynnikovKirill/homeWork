@@ -1,16 +1,8 @@
 import React from 'react'
 
-type AlternativeSuperInputText = {
-
-}
-
 function AlternativeSuperInputText() {
-
-
     return (
-
         <input/>
-
     )
 }
 

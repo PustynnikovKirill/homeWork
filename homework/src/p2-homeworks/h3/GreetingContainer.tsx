@@ -1,9 +1,9 @@
-import React, {ChangeEvent, useState,KeyboardEvent} from 'react'
+import React, {ChangeEvent,KeyboardEvent, useState} from 'react'
 import Greeting from './Greeting'
 import {UserType} from "./HW3";
 
 type GreetingContainerPropsType = {
-    users: UserType[] // need to fix any                описывае сто приходит с HW3
+    users: UserType[]  // need to fix any
     addUserCallback: (name: string) => void // need to fix any
 }
 
@@ -13,31 +13,30 @@ type GreetingContainerPropsType = {
 // более современный и удобный для про :)
 // уровень локальной логики
 const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => { // деструктуризация пропсов
-    const [name, setName] = useState<string>('') // need to fix any    //здесь храним значение INPUT
-    const [error, setError] = useState<string>('') // need to fix any   // хронилище для ошибки
+    const [name, setName] = useState<string>('') // need to fix any
+    const [error, setError] = useState<string>('') // need to fix any
 
-    const setNameCallback = (event: ChangeEvent<HTMLInputElement>) => {
-        const trimmedName = event.currentTarget.value.trim()
-        if (trimmedName) {
-            setName(trimmedName)
+    const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => { // need to fix any
+        if (e.currentTarget.value.trim()) {
+            setName(e.currentTarget.value.trim())
             setError('')
         } else {
-            setName(' ')
-            setError('name is require')
-        }                                                                        // need to fix any    // делаем проверку, и если имя норм то в верхний сейт, если ошибка то в нижний
-        setName(event.currentTarget.value) // need to fix
+            setName('')// need to fix
+            setError('error')
+        }
     }
     const addUser = () => {
-            alert(`Hello ${name} !`)
-            addUserCallback(name)
-            setName('')// need to fix         // который пойдет на кнопку   6.20 мин
+        addUserCallback(name)
+        alert(`Hello  ${name} !`) // need to fix
+        setName('')
     }
-    const onEnter = (e:KeyboardEvent<HTMLInputElement>) => {
-            if (e.key === 'Enter' && name){
-                addUser()
-            }
+    const onEnter = (e:KeyboardEvent<HTMLInputElement>)=> {
+        if (e.key === 'Enter' && name){
+            addUser()
+        }
     }
-    const totalUsers = users.length // need to fix       // сколь имен в массиве
+
+    const totalUsers = users.length // need to fix
 
     return (
         <Greeting
@@ -46,7 +45,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
             addUser={addUser}
             error={error}
             totalUsers={totalUsers}
-            onEnter = {onEnter}
+            onEnter={onEnter}
         />
     )
 }
