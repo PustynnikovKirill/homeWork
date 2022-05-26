@@ -1,2 +1,33 @@
 .button {
+    margin: 10px;
+    width: 60px;
+
+    background: #32e132;
+    color: #062a06;
+    outline: none;
+}
+.button:focus {
+    outline: #f64242;
+}
+.button:active {
+    background: #ea0836;
+}
+.active {
+    background: #ec3636;
+}
+.affair {
+    display: flex;
+}
+.item {
+    margin: 10px;
+    width: 100px;
+}
+.high {
+    color: red;
+}
+.middle {
+    color:orange;
+}
+.low {
+    color: rgba(127, 255, 0, 0.75);
 }

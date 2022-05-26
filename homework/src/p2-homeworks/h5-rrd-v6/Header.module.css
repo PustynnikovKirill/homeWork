@@ -9,11 +9,17 @@
 .active {
     color: indianred;
 }
+.block {
+    width:21px;
+    height:21px;
+    margin:10px;
+    background: #3a9f3a;
+}
 .header {
     display: flex;
     width: 200px;
     transition-duration: 500ms;
-    transform: translate(-220px);
+    transform: translate(-200px);
 }
 .header:hover {
     transition-duration: 500ms;
