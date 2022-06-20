@@ -38,11 +38,14 @@ export const homeWorkReducer = (state: UserType[] = initialState, action: Action
             return action.payload === 'DOWN' ? newState.reverse() : newState
 
         }
+        case 'CHECK': {
+            return state.filter(el=>el.age >= 18)
+        }
         default:
             return state
     }
 }
-export type ActionType = filteredPeopleAgeType | filteredUPPeopleAgeACType
+export type ActionType = filteredPeopleAgeType | filteredUPPeopleAgeACType | filteredCheckPeopleAgeACType
 export type filteredPeopleAgeType = ReturnType<typeof filteredUpPeopleAgeAC>
 export const filteredUpPeopleAgeAC = () => {
     return {
@@ -54,6 +57,13 @@ export type filteredUPPeopleAgeACType = ReturnType<typeof filteredDownPeopleAgeA
 export const filteredDownPeopleAgeAC = () => {
     return {
         type: 'DOWN',
+        payload: {}
+    } as const
+}
+export type filteredCheckPeopleAgeACType = ReturnType<typeof filteredCheckPeopleAgeAC>
+export const filteredCheckPeopleAgeAC = () => {
+    return {
+        type: 'CHECK',
         payload: {}
     } as const
 }

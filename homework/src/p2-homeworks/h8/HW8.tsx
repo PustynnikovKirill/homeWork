@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {
+    filteredCheckPeopleAgeAC,
     filteredDownPeopleAgeAC,
     filteredUpPeopleAgeAC,
     filteredUPPeopleAgeACType,
@@ -9,6 +10,7 @@ import {
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 import {useDispatch, useSelector} from "react-redux"
 import {AppRootStateType} from "./bll/state";
+import style from './bll/HW8.module.css'
 
 export type UserType = {
     _id: number,
@@ -33,7 +35,7 @@ function HW8() {
     const dispatch = useDispatch()
 
     const finalPeople = task.map((p: UserType) => (
-        <div key={p._id}>
+        <div key={p._id} className={style.item}>
             <span>{p.name}</span> <span>{p.age}</span>
         </div>
     ))
@@ -43,6 +45,9 @@ function HW8() {
     }
  const sortDown = () => {
         dispatch(filteredDownPeopleAgeAC())
+    }
+    const sortCheck = () => {
+        dispatch(filteredCheckPeopleAgeAC())
     }
 
 
@@ -54,11 +59,11 @@ function HW8() {
             <hr/>
             homeworks 8
             {finalPeople}
-            <>
+            <div className={style.item}>
                 <div><SuperButton onClick={sortUp}>sort up</SuperButton></div>
                 <div><SuperButton onClick={sortDown}>sort down</SuperButton></div>
-                {/*<div><SuperButton onClick={sortCheck}>check 18</SuperButton></div>*/}
-            </>
+                <div><SuperButton onClick={sortCheck}>check 18</SuperButton></div>
+            </div>
 
             <hr/>
             {/*для личного творчества, могу проверить*/}

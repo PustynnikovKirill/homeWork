@@ -1,5 +1,10 @@
 import React from 'react'
-import {filteredUpPeopleAgeAC, homeWorkReducer} from '../homeWorkReducer'
+import {
+    filteredCheckPeopleAgeAC,
+    filteredDownPeopleAgeAC,
+    filteredUpPeopleAgeAC,
+    homeWorkReducer
+} from '../homeWorkReducer'
 import {UserType} from "../../HW8";
 
 
@@ -20,14 +25,14 @@ test('sort name up', () => {
     const newState = homeWorkReducer(initialState, filteredUpPeopleAgeAC())
     expect(newState[0].name).toBe('Александр')
 })
-// test('sort name down', () => {
-//     const newState = homeWorkReducer(initialState, {type: 'sort', payload: 'down'})
-//
-//     expect(newState[4].age).toBe(3)
-//
-// })
-// test('check age 18', () => {
-//     const newState = homeWorkReducer(initialState, {type: 'check', payload: 18})
-//     expect(newState[4].age >= 18).toBe(18)
-//
-// })
+test('sort name down', () => {
+    const newState = homeWorkReducer(initialState, filteredDownPeopleAgeAC())
+
+    expect(newState[0].name).toBe('Кот')
+
+})
+test('check age 18', () => {
+    const newState = homeWorkReducer(initialState, filteredCheckPeopleAgeAC())
+    expect(newState[0].age ).toBe(66)
+
+})
